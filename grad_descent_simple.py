@@ -1,6 +1,10 @@
 from sympy import *
 import random
 
+"""Date: 08/08/2023
+   Author: Ashe Vazquez
+   This program is executes a generic descent rate algorithm to find the minima of the given function, input as a 
+   sympy expression."""
 
 def start_point(degree, lower_bound, upper_bound):
     """this function randomly generates the starting point of the GD algorithm"""
@@ -11,6 +15,7 @@ def start_point(degree, lower_bound, upper_bound):
     return random_list
 
 
+# forgot numpy exists
 def mult_vector(scalar, lst):
     ret = []
     for index in range(len(lst)):
@@ -56,12 +61,13 @@ def grad_descent_algorithm(function, vars, point, learning_rate, desired_runs, r
         next_point = sum_vector(point, mult_vector(-1*learning_rate, gradient_at_point))
         return grad_descent_algorithm(function, vars, next_point, learning_rate, desired_runs, runs_so_far)
 
+
+# example run
 x = Symbol('x')
 fn = sympify('x**2 - 2*x')
 
 lower_bound = -5
 upper_bound = 5
-
 
 point = [random.randint(lower_bound, upper_bound)]
 vars = {0: 'x'}

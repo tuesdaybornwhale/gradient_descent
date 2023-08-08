@@ -1,7 +1,11 @@
 """Date: 04/08/2023
    Author: Ashe Vazquez
 This program uses gradient descent to find an n-degree polynomial which approximates the sine function between -3 and
-3."""
+3. This exercise problem is found on
+https://www.khanacademy.org/math/multivariable-calculus/applications-of-multivariable-derivatives/optimizing-multivariable-functions/a/what-is-gradient-descent
+
+At this current point I haven't yet verified whether the polynomial this code spits out actually approximates a sine
+function - I think it doesn't  :(("""
 
 from sympy import *
 import random
@@ -15,21 +19,6 @@ def start_point(degree, lower_bound, upper_bound):
         n = random.randint(lower_bound, upper_bound)  # starting coefficients between -10 and 10
         random_list.append(n)
     return random_list
-
-
-# def mult_vector(scalar, lst):
-#     ret = []
-#     for index in range(len(lst)):
-#         ret.append(lst[index]*scalar)
-#     return ret
-#
-#
-# def sum_vector(lst1, lst2):  # how the fuck doesn't sympy have an easy method for this
-#     """sums lists representing vectors in R^n"""
-#     ret = []
-#     for index in range(len(lst1)):
-#         ret.append(lst1[index]+lst2[index])
-#     return ret
 
 
 def list_for_sub(vars, point):
